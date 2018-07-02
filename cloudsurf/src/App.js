@@ -12,7 +12,7 @@ class App extends Component {
     this.state = {
       // firebase returns indexed objects
       users: [],
-      dropzones: []
+      dropzones: null
     }
   }
   
@@ -35,7 +35,10 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-       <DropzoneContainer />
+      {this.state.dropzones 
+       ? <DropzoneContainer dropzone={this.state.dropzones[40]} />
+       : <div>Loading Dropzone</div> }
+       
        <Map dropzone={this.state.dropzones}/>
       </div>
     );
