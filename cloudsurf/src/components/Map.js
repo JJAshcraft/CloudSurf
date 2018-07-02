@@ -8,12 +8,12 @@ class MapContainer extends React.Component {
     }
     render(){
         const style = {
-            width: '300px',
+            width: '600px',
             height: '300px',
           }
         return(
-            <div className="map" style={{float: "right"}}> 
-                <Map google={this.props.google} zoom={4.5}
+            <div className="map" > 
+                <Map google={this.props.google} zoom={3.5}
                     initialCenter={{
                         lat: 36.850033,
                         lng: -87.6500523

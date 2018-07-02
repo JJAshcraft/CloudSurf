@@ -1,34 +1,24 @@
-import React, {Component} from 'react';
+import React from 'react';
+import { width } from 'window-size';
+import './user.css';
 
-
-class UserList extends Component{
-    constructor(props){
-        super(props);
-        this.state ={
-            userlist: []
-        }
-
+const User = (props) => {
+    const style = {
+        hieght: '300px',
+        border: '1px solid black'
     }
-    componentDidMount(){
-        this.setState({
-            userlist: this.props.users
-        })
-    }
-    render(){
-        console.log(this.state.userlist);
-        const style ={
-            width: '300px',
-            height: '300px'
-        }
-        return(
-            <div style={style} className="userList">
-                {this.state.userlist.map(user => (
-                    <div>
-                        <h1>{user.email}</h1>
-                    </div>
-                ))}
+    return(
+        <div style={style} className='user'>
+            <div className="user__img"></div>
+            <div>
+                <h1>{props.user.name}</h1>
+                <p>{props.user.state}</p>
+                <p>{props.user.phoneNumber}</p>
+                <ul>
+                    <li>{props.user.flyingStyle[0]}</li>
+                </ul>
             </div>
-        )
-    }
+        </div>
+    )
 }
-export default UserList;
+export default User;

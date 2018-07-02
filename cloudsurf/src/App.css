@@ -1,5 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
 .App {
   text-align: center;
   /* display: flex; */
+  width: 900px;
+  border: 1px solid red;
+  height: 100vh;
 }
 

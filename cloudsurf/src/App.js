@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
-import UserList from './components/user';
+import UserList from './components/UserList';
 import firebase from './firebase'
 import './App.css';
 
@@ -17,7 +17,7 @@ class App extends Component {
 
     usersRef.on('value', snapshot => {
       console.log(snapshot.val())
-      this.setState({ users:snapshot.val() })
+      this.setState({ users: snapshot.val() })
     })
 
   }
