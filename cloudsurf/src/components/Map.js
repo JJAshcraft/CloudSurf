@@ -1,5 +1,6 @@
 import React from 'react';
 import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
+import { link } from 'fs';
 
 
 class MapContainer extends React.Component {
@@ -21,14 +22,15 @@ class MapContainer extends React.Component {
                     }}
                     style={style}
                 >
-                    { this.props.dropzone.map(zone => { 
-                        return  <Marker onClick={() => (console.log('clicked'))}
-                                    position={{lat: zone[1].lat, lng: zone[1].lng}}
-                                    key={zone[0]}
-                                />
+                    { this.props.dropzone.map(zone => {
+                        return  <Link to={`dropzone/${zone[0]}`}>
+                                    <Marker onClick={() => (console.log('clicked'))}
+                                                position={{lat: zone[1].lat, lng: zone[1].lng}}
+                                                key={zone[0]}
+                                            />
+                                 </Link>
                         })
                     }
-                    
                 </Map>
             </div>
         )

@@ -36,7 +36,7 @@ class App extends Component {
     console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.dropzones 
+      {this.state.dropzones
        ? <React.Fragment>
           <DropzoneContainer dropzone={this.state.dropzones[40]} />
           <Map dropzone={this.state.dropzones}/>
