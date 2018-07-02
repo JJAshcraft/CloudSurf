@@ -7,9 +7,9 @@ import DropzoneEvents from './DropzoneEvents'
 const DropzoneContainer = () =>
   <React.Fragment>
     <DropzoneImg />
-    <DropzoneInfo />
-    <DropzoneUsers />
+    <DropzoneInfo info />
+    <DropzoneUsers users={[]}/>
     <DropzoneEvents />
   </React.Fragment>
 
-export DropzoneContainer
+export default DropzoneContainer

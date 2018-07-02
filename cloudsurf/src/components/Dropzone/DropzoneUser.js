@@ -2,4 +2,4 @@ import React from 'react'
 
 const DropzoneUser = () => <div>User</div>
 
-export DropzoneUser
+export default DropzoneUser
