@@ -1,0 +1,48 @@
+{
+  "users" : [ {
+    "email" : "marisolbowers@zenthall.com",
+    "flyingStyle" : [ "acro", "perf", "flock", "xrw" ],
+    "homeDropZone" : "Oregon",
+    "isCoach" : 0,
+    "name" : "Marisol Bowers",
+    "phoneNumber" : "+1 (934) 409-2480",
+    "state" : "Mississippi",
+    "suitType" : 1
+  }, {
+    "email" : "wilcoxnorris@zenthall.com",
+    "flyingStyle" : [ "acro", "perf", "flock", "xrw" ],
+    "homeDropZone" : "Maryland",
+    "isCoach" : 0,
+    "name" : "Wilcox Norris",
+    "phoneNumber" : "+1 (975) 457-3680",
+    "state" : "Montana",
+    "suitType" : 2
+  }, {
+    "email" : "leilarogers@zenthall.com",
+    "flyingStyle" : [ "acro", "perf", "flock", "xrw" ],
+    "homeDropZone" : "Missouri",
+    "isCoach" : 0,
+    "name" : "Leila Rogers",
+    "phoneNumber" : "+1 (920) 440-2542",
+    "state" : "Rhode Island",
+    "suitType" : 1
+  }, {
+    "email" : "arlenepratt@zenthall.com",
+    "flyingStyle" : [ "acro", "perf", "flock" ],
+    "homeDropZone" : "Hawaii",
+    "isCoach" : 1,
+    "name" : "Arlene Pratt",
+    "phoneNumber" : "+1 (806) 499-2982",
+    "state" : "California",
+    "suitType" : 2
+  }, {
+    "email" : "leanderson@zenthall.com",
+    "flyingStyle" : [ "acro", "flock", "xrw" ],
+    "homeDropZone" : "Vermont",
+    "isCoach" : 1,
+    "name" : "Le Anderson",
+    "phoneNumber" : "+1 (959) 444-3173",
+    "state" : "Nebraska",
+    "suitType" : 3
+  } ]
+}

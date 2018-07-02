@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import firebase from './firebase';
-// import firebase from 'firebase/app';
-// import 'firebase/<PACKAGE>';
+
 
 class UserList extends Component{
     constructor(props){
@@ -12,22 +10,18 @@ class UserList extends Component{
 
     }
     componentDidMount(){
-        var userRef = firebase.database().ref('users');
-        userRef.on('value', snapshot => {
-            console.log(snapshot.val())
-            this.setState({
-                userlist: snapshot.val()
-            })
+        this.setState({
+            userlist: this.props.users
         })
     }
     render(){
         console.log(this.state.userlist);
         const style ={
-            flex: 1,
-            width: '300px'
+            width: '300px',
+            height: '300px'
         }
         return(
-            <div style={style}>
+            <div style={style} className="userList">
                 {this.state.userlist.map(user => (
                     <div>
                         <h1>{user.email}</h1>

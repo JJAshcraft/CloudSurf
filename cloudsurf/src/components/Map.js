@@ -1,25 +1,24 @@
 import React from 'react';
 import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
-import { width } from 'window-size';
 
 
-export class MapContainer extends React.Component {
+class MapContainer extends React.Component {
     constructor(props){
         super(props);
     }
     render(){
         const style = {
-            flex: 7,
-            width: '900px',
-            float: 'right'
+            width: '300px',
+            height: '300px',
           }
         return(
-            <div className="map" style={style}> 
+            <div className="map" style={{float: "right"}}> 
                 <Map google={this.props.google} zoom={4.5}
                     initialCenter={{
                         lat: 36.850033,
                         lng: -87.6500523
                     }}
+                    style={style}
                 >
                     <Marker onClick={() => (console.log('clicked'))}
                         name={'Current location'}
