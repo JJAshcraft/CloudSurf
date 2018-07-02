@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
 import './App.css';
-import firebase from '../firebase';
+import firebase from './f';
 import FrontPage from './components/FrontPage';
 
 const provider = new firebase.auth.FacebookAuthProvider();
@@ -20,6 +20,7 @@ class App extends Component {
 
 FacebookSignIn = () => {
   firebase.auth().signInWithPopup(provider).then(function (result) {
+    console.log(result);
     // This gives you a Facebook Access Token. You can use it to access the Facebook API.
     var token = result.credential.accessToken;
     // The signed-in user info.
@@ -36,15 +37,22 @@ FacebookSignIn = () => {
     // ...
   });
 }  
+
+  componentDidMount(){
+    let usersRef = firebase.database().ref('users');
+
+    usersRef.on('value', snapshot => {
+      console.log(snapshot.val())
+      this.setState({ users:snapshot.val() })
+    })
+
+  }
+  
   render() {
     return (
-    
-      <div>
-       {this.state.isLoggedIn ===true ? <div> <button onClick = {this.FacebookSignIn}>login</button>  <Map /></div>: 
-       
-       <div></div> }
-
-    </div>
+      <div className="App">
+       <Map />
+      </div>
     );
   }
 }
