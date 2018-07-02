@@ -1,5 +1,6 @@
 import React from 'react';
 import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
+import { width } from 'window-size';
 
 
 export class MapContainer extends React.Component {
@@ -8,22 +9,21 @@ export class MapContainer extends React.Component {
     }
     render(){
         const style = {
+            flex: 7,
             width: '900px',
-            height: '900px',
             float: 'right'
           }
         return(
             <div className="map" style={style}> 
                 <Map google={this.props.google} zoom={4.5}
-                    // style={style}
                     initialCenter={{
                         lat: 36.850033,
                         lng: -87.6500523
                     }}
                 >
                     <Marker onClick={() => (console.log('clicked'))}
-                    name={'Current location'}
-                    position={{lat: 37.778519, lng: -122.405640}}
+                        name={'Current location'}
+                        position={{lat: 37.778519, lng: -122.405640}}
                     />
                     
                 </Map>
