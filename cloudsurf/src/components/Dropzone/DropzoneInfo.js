@@ -7,17 +7,19 @@ const DropzoneInfo = props => {
   
   const {
     name, 
-    location,
-    contactInfo,
-    hours
+    address,
+    phone,
+    web,
+    rating
   } = props.info
 
   return (
     <div>
       <div>{name}</div>
-      <div>{location}</div>
-      <div>{contactInfo}</div>
-      <div>{hours}</div>
+      <div>{address}</div>
+      <div>{phone}</div>
+      <div>{web}</div>
+      <div>{rating}</div>
     </div>
   )
 }
