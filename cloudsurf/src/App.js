@@ -33,6 +33,7 @@ class App extends Component {
   }
   
   render() {
+    console.log(this.state.dropzones)
     return (
       <div className="App">
       {this.state.dropzones 

@@ -11,11 +11,6 @@ class MapContainer extends React.Component {
             width: '600px',
             height: '300px',
           }
-          const drop = [];
-          for(let x in this.props.dropzone){
-            drop.push(this.props.dropzone[x])
-          }
-         
           
         return(
             <div className="map" > 
@@ -26,10 +21,10 @@ class MapContainer extends React.Component {
                     }}
                     style={style}
                 >
-                    { drop.map(zone => { 
+                    { this.props.dropzone.map(zone => { 
                         return  <Marker onClick={() => (console.log('clicked'))}
-                                    position={{lat: zone.lat, lng: zone.lng}}
-                                    key={zone.id}
+                                    position={{lat: zone[1].lat, lng: zone[1].lng}}
+                                    key={zone[0]}
                                 />
                         })
                     }
