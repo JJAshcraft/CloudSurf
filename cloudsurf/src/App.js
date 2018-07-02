@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
+import DropzoneContainer from './components/Dropzone/DropzoneContainer'
+import './App.css';
 // import UserList from './components/UserList';
 import firebase from './firebase'
 import './App.css';
@@ -8,8 +10,9 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      users:[],
-      dropzones:[]
+      // firebase returns indexed objects
+      users: [],
+      dropzones: []
     }
   }
   
@@ -23,8 +26,8 @@ class App extends Component {
 
     let dzRef = firebase.database().ref('dropzones');
     dzRef.on('value', snapshot => {
-      console.log(snapshot.val())
-      this.setState({ dropzones:snapshot.val() })
+      let dropzones = Object.entries(snapshot.val())
+      this.setState({ dropzones })
     })    
 
   }
@@ -32,6 +35,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+       <DropzoneContainer />
        <Map dropzone={this.state.dropzones}/>
       </div>
     );
