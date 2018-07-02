@@ -57,6 +57,6 @@ axios.get(PLACES_API_ENDPOINT, {
   .catch(e => console.log('uh oh:', e))
 
 function createPhotoURL(photoRef) {
-  return `${PHOTOS_API_ENDPOINT}/?maxwidth=550&photoreference=${photoRef}&key=${API_KEY}` 
+  return `${PHOTOS_API_ENDPOINT}?maxwidth=550&photoreference=${photoRef}&key=${API_KEY}` 
 }
 
