@@ -9,7 +9,10 @@ export class MapContainer extends React.Component {
     render(){
         const style = {
             width: '100%',
-            height: '100%'
+            
+            position: 'absolute',
+            top: '100px',
+            overflow: 'hidden'
           }
         return(
             <div className="map"> 
