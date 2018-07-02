@@ -2,28 +2,37 @@ import React from 'react';
 import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
 
 
-export class MapContainer extends React.Component {
+class MapContainer extends React.Component {
     constructor(props){
         super(props);
     }
     render(){
         const style = {
-            width: '100%',
-            height: '100%'
+            width: '600px',
+            height: '300px',
           }
+          const drop = [];
+          for(let x in this.props.dropzone){
+            drop.push(this.props.dropzone[x])
+          }
+         
+          
         return(
-            <div className="map"> 
-                <Map google={this.props.google} zoom={5}
-                    style={style}
+            <div className="map" > 
+                <Map google={this.props.google} zoom={3.5}
                     initialCenter={{
                         lat: 36.850033,
                         lng: -87.6500523
                     }}
+                    style={style}
                 >
-                    <Marker onClick={() => (console.log('clicked'))}
-                    name={'Current location'}
-                    position={{lat: 37.778519, lng: -122.405640}}
-                    />
+                    { drop.map(zone => { 
+                        return  <Marker onClick={() => (console.log('clicked'))}
+                                    position={{lat: zone.lat, lng: zone.lng}}
+                                    key={zone.id}
+                                />
+                        })
+                    }
                     
                 </Map>
             </div>
