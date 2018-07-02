@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
+import DropzoneContainer from './components/Dropzone/DropzoneContainer'
 import './App.css';
 import FrontPage from './components/FrontPage';
 import firebase, {auth, provider} from './firebase';
@@ -12,6 +13,8 @@ height: 100px;
 position: absolute;
 top: 0;
 `
+// import UserList from './components/UserList';
+
 
 class App extends Component {
   constructor() {
@@ -20,7 +23,8 @@ class App extends Component {
       users: [],
       currentUser: null,
       isLoggedIn: false,
-      
+      // firebase returns indexed objects
+      dropzones: null
     }
  
   }
@@ -28,9 +32,8 @@ class App extends Component {
   componentDidMount() {
 
     let usersRef = firebase.database().ref('users');
-
     usersRef.on('value', snapshot => {
-      console.log(snapshot.val())
+      // console.log(snapshot.val())
       this.setState({ users:snapshot.val() })
     });
 
@@ -48,6 +51,14 @@ class App extends Component {
         });
       }
     });
+    })    
+
+
+    let dzRef = firebase.database().ref('dropzones');
+    dzRef.on('value', snapshot => {
+      let dropzones = Object.entries(snapshot.val())
+      this.setState({ dropzones })
+    })    
 
 
   }
@@ -87,10 +98,16 @@ SignOut = () => {
 
 
   render() {
+    console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header><Map /> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
-       
+      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header><Map dropzone={this.state.dropzones} /> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
+ 
+      {this.state.dropzones 
+       ? <React.Fragment>
+          <DropzoneContainer dropzone={this.state.dropzones[40]} />
+         </React.Fragment>
+       : <div>Loading ...</div> }
       </div>
     );
   }
