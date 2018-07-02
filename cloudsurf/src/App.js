@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
-import UserList from './components/UserList';
+// import UserList from './components/UserList';
 import firebase from './firebase'
 import './App.css';
 
@@ -16,14 +16,7 @@ class App extends Component {
   componentDidMount(){
     let usersRef = firebase.database().ref('users');
     usersRef.on('value', snapshot => {
-      console.log(snapshot.val())
-<<<<<<< HEAD
-      this.setState({ users: snapshot.val() })
-    })
-||||||| merged common ancestors
-      this.setState({ users:snapshot.val() })
-    })
-=======
+      // console.log(snapshot.val())
       this.setState({ users:snapshot.val() })
     })    
 
@@ -33,15 +26,13 @@ class App extends Component {
       console.log(snapshot.val())
       this.setState({ dropzones:snapshot.val() })
     })    
->>>>>>> 5d028969030a573751b920724d6936f746aa5492
 
   }
   
   render() {
     return (
       <div className="App">
-       <Map />
-      < UserList users={this.state.users}/>
+       <Map dropzone={this.state.dropzones}/>
       </div>
     );
   }
