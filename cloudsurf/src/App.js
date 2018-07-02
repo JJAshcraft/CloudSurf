@@ -24,7 +24,8 @@ class App extends Component {
     let dzRef = firebase.database().ref('dropzones');
     dzRef.on('value', snapshot => {
       console.log(snapshot.val())
-      this.setState({ dropzones:snapshot.val() })
+      let newRecords = Object.entries(snapshot.val());
+      this.setState({ dropzones: newRecords })
     })    
 
   }
