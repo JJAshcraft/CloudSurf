@@ -4,7 +4,7 @@ import DropzoneInfo from './DropzoneInfo'
 import DropzoneUsers from './DropzoneUsers'
 import DropzoneEvents from './DropzoneEvents'
 
-const DropzoneContainer = () =>
+const DropzoneContainer = (props) =>
   <div>
     <DropzoneImg />
     <DropzoneInfo info />

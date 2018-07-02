@@ -26,22 +26,14 @@ class App extends Component {
 
     let dzRef = firebase.database().ref('dropzones');
     dzRef.on('value', snapshot => {
-<<<<<<< HEAD
-      console.log(snapshot.val())
-      let newRecords = Object.entries(snapshot.val());
-      this.setState({ dropzones: newRecords })
-||||||| merged common ancestors
-      console.log(snapshot.val())
-      this.setState({ dropzones:snapshot.val() })
-=======
       let dropzones = Object.entries(snapshot.val())
       this.setState({ dropzones })
->>>>>>> c5cf0751b05ef2ee99e84fbf307be692d5b0d37a
     })    
 
   }
   
   render() {
+    console.log(this.state.dropzones)
     return (
       <div className="App">
        <DropzoneContainer />
