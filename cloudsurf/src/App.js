@@ -24,22 +24,16 @@ class App extends Component {
       currentUser: null,
       isLoggedIn: false,
       // firebase returns indexed objects
-      dropzones: null
+      dropzones: null,
     }
- 
+ this.FacebookSignIn.bind(this);
+ this.SignOut.bind(this);
   }
-
-  componentDidMount() {
-
-    let usersRef = firebase.database().ref('users');
-    usersRef.on('value', snapshot => {
-      // console.log(snapshot.val())
-      this.setState({ users:snapshot.val() })
-    });
-
+  
+  componentWillMount() {
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        
+
         this.setState({
           isLoggedIn: true,
           currentUser: user,
@@ -51,8 +45,17 @@ class App extends Component {
         });
       }
     });
-    })    
+  }
 
+  componentDidMount(){
+
+    let usersRef = firebase.database().ref('users');
+    usersRef.on('value', snapshot => {
+      // console.log(snapshot.val())
+      this.setState({ users:snapshot.val() })
+    });
+
+    
 
     let dzRef = firebase.database().ref('dropzones');
     dzRef.on('value', snapshot => {
@@ -60,11 +63,10 @@ class App extends Component {
       this.setState({ dropzones })
     })    
 
-
   }
 
 
-FacebookSignIn = () => {
+FacebookSignIn () {
 firebase.auth().signInWithPopup(provider)
 .then(function (result) {
   if (result.credential) {
@@ -86,7 +88,7 @@ firebase.auth().signInWithPopup(provider)
 });
 }  
 
-SignOut = () => {
+SignOut() {
   firebase.auth().signOut().then(function () {
     // Sign-out successful.
   }).catch(function (error) {
@@ -101,11 +103,12 @@ SignOut = () => {
     console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header><Map dropzone={this.state.dropzones} /> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
+      {this.state.isLoggedIn? <div><Header><button type='submit' onClick={this.SignOut} >Logout</button></Header> </div>: <div><Header><button type='submit' onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
  
       {this.state.dropzones 
        ? <React.Fragment>
           <DropzoneContainer dropzone={this.state.dropzones[40]} />
+          <Map dropzone={this.state.dropzones} />
          </React.Fragment>
        : <div>Loading ...</div> }
       </div>
