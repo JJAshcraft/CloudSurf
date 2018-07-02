@@ -1,5 +1,6 @@
 {
   "users" : [ {
+    "id":"1",
     "email" : "marisolbowers@zenthall.com",
     "flyingStyle" : [ "acro", "perf", "flock", "xrw" ],
     "homeDropZone" : "Oregon",
@@ -9,6 +10,7 @@
     "state" : "Mississippi",
     "suitType" : 1
   }, {
+    "id":"2",
     "email" : "wilcoxnorris@zenthall.com",
     "flyingStyle" : [ "acro", "perf", "flock", "xrw" ],
     "homeDropZone" : "Maryland",
@@ -18,6 +20,7 @@
     "state" : "Montana",
     "suitType" : 2
   }, {
+    "id":"3",
     "email" : "leilarogers@zenthall.com",
     "flyingStyle" : [ "acro", "perf", "flock", "xrw" ],
     "homeDropZone" : "Missouri",
@@ -27,6 +30,7 @@
     "state" : "Rhode Island",
     "suitType" : 1
   }, {
+    "id":"4",
     "email" : "arlenepratt@zenthall.com",
     "flyingStyle" : [ "acro", "perf", "flock" ],
     "homeDropZone" : "Hawaii",
@@ -36,6 +40,7 @@
     "state" : "California",
     "suitType" : 2
   }, {
+    "id":"5",
     "email" : "leanderson@zenthall.com",
     "flyingStyle" : [ "acro", "flock", "xrw" ],
     "homeDropZone" : "Vermont",
@@ -44,5 +49,54 @@
     "phoneNumber" : "+1 (959) 444-3173",
     "state" : "Nebraska",
     "suitType" : 3
-  } ]
+  } ],
+  "dropzones" :[ {
+    "name" : "Florida Skydiving Center",
+    "address": "440 S Airport Rd, Lake Wales, FL 33859, USA",
+    "lat":"27.897454",
+    "long":"-81.61841452010728",
+    "phone": "(813)783-9399",
+    "web": "http://floridaskydiving.com/ ",
+    "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
+    "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
+    "usersIds": ["1", "2"]
+  }, {
+    "name" : "Skydive Monterey Bay",
+    "address": "3261 Imjin Road, Marina, CA 93933 ",
+    "lat":"36.6818783",
+    "long":"-121.7623475",
+    "phone": "(888)BAY-JUMP",
+    "web": "http://www.skydivemontereybay.com ",
+    "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
+    "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
+    "usersIds": ["3", "2"]
+  }, {
+    "name" : "Skydive Houston Airport",
+    "address": "15599 Plane View Dr, Waller, TX, 75484",
+    "lat":"29.996330",
+    "long":"-95.932487",
+    "phone": "(832)622-6181",
+    "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
+    "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
+    "usersIds": ["4", "5"]
+  }, {
+    "name" : "Skydive Awesome!",
+    "address": "2028 NW Berg Dr, Madras, Oregon 97741",
+    "lat":"44.66802",
+    "long":"-121.149699",
+    "phone": "(813)-783-9399",
+    "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
+    "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
+    "usersIds": ["1","2","5"]
+  }, {
+    "name" : "",
+    "address": "440 S Airport Rd, Lake Wales, FL 33859, USA",
+    "lat":"27.897454",
+    "long":"-81.61841452010728",
+    "phone": "(813)-783-9399",
+    "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
+    "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
+    "usersIds": ["3","4","5"]
+  }
+  ]
 }
