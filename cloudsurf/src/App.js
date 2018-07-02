@@ -37,10 +37,11 @@ class App extends Component {
     return (
       <div className="App">
       {this.state.dropzones 
-       ? <DropzoneContainer dropzone={this.state.dropzones[40]} />
-       : <div>Loading Dropzone</div> }
-       
-       <Map dropzone={this.state.dropzones}/>
+       ? <React.Fragment>
+          <DropzoneContainer dropzone={this.state.dropzones[40]} />
+          <Map dropzone={this.state.dropzones}/>
+         </React.Fragment>
+       : <div>Loading ...</div> }
       </div>
     );
   }
