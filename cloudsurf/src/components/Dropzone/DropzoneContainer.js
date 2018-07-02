@@ -5,11 +5,11 @@ import DropzoneUsers from './DropzoneUsers'
 import DropzoneEvents from './DropzoneEvents'
 
 const DropzoneContainer = () =>
-  <React.Fragment>
+  <div>
     <DropzoneImg />
     <DropzoneInfo info />
     <DropzoneUsers users={[]}/>
     <DropzoneEvents />
-  </React.Fragment>
+  </div>
 
 export default DropzoneContainer

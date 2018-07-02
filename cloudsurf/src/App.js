@@ -10,8 +10,9 @@ class App extends Component {
   constructor(){
     super();
     this.state = {
-      users:[],
-      dropzones:[]
+      // firebase returns indexed objects
+      users: [],
+      dropzones: []
     }
   }
   
@@ -25,8 +26,8 @@ class App extends Component {
 
     let dzRef = firebase.database().ref('dropzones');
     dzRef.on('value', snapshot => {
-      console.log(snapshot.val())
-      this.setState({ dropzones:snapshot.val() })
+      let dropzones = Object.entries(snapshot.val())
+      this.setState({ dropzones })
     })    
 
   }
