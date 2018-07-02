@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Map from './components/Map';
 import './App.css';
 
 class App extends Component {
@@ -6,7 +7,7 @@ class App extends Component {
     return (
       <div className="App">
 
-
+       <Map />
       </div>
     );
   }
