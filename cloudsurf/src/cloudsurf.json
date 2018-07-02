@@ -51,52 +51,91 @@
     "suitType" : 3
   } ],
   "dropzones" :[ {
+    "id":"d1",
     "name" : "Florida Skydiving Center",
     "address": "440 S Airport Rd, Lake Wales, FL 33859, USA",
     "lat":"27.897454",
-    "long":"-81.61841452010728",
+    "lng":"-81.61841452010728",
     "phone": "(813)783-9399",
     "web": "http://floridaskydiving.com/ ",
     "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
     "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
-    "usersIds": ["1", "2"]
+    "usersIds": ["1", "2"],
+    "rating":"5"
   }, {
+    "id":"d2",
     "name" : "Skydive Monterey Bay",
     "address": "3261 Imjin Road, Marina, CA 93933 ",
     "lat":"36.6818783",
-    "long":"-121.7623475",
+    "lng":"-121.7623475",
     "phone": "(888)BAY-JUMP",
     "web": "http://www.skydivemontereybay.com ",
     "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
     "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
-    "usersIds": ["3", "2"]
+    "usersIds": ["3", "2"],
+    "rating":"4"
   }, {
+    "id":"d3",
     "name" : "Skydive Houston Airport",
     "address": "15599 Plane View Dr, Waller, TX, 75484",
     "lat":"29.996330",
-    "long":"-95.932487",
+    "lng":"-95.932487",
     "phone": "(832)622-6181",
     "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
     "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
-    "usersIds": ["4", "5"]
+    "usersIds": ["4", "5"],
+    "rating":"5"
   }, {
+    "id":"d4",
     "name" : "Skydive Awesome!",
     "address": "2028 NW Berg Dr, Madras, Oregon 97741",
     "lat":"44.66802",
-    "long":"-121.149699",
+    "lng":"-121.149699",
     "phone": "(813)-783-9399",
     "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
     "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
-    "usersIds": ["1","2","5"]
+    "usersIds": ["1","2","5"],
+    "rating":"3"
   }, {
-    "name" : "",
-    "address": "440 S Airport Rd, Lake Wales, FL 33859, USA",
-    "lat":"27.897454",
-    "long":"-81.61841452010728",
-    "phone": "(813)-783-9399",
+    "id":"d5",
+    "name" : "Mile-Hi Skydiving Center",
+    "address": "229 Airport Rd., Hangar 34G, Longmont, Colorado 80503",
+    "lat":"40.1636714",
+    "lng":"-105.1630369",
+    "phone": "(303) 759-3483",
     "googlePlacesId": "ChIJ9X7mBSQP3YgRlSH1LSob9Nc",
     "photoURL": "https://maps.googleapis.com/maps/api/place/photo?maxwidth=550&photoreference=CmRaAAAAR_-TIhFTPgSD-X12VIj671pDm_URgjMDCRswBeyvyAq7Oc_AGiC9M6zWmcfx2T1FGeJdWuS1L0k3w9JzuLNF-sQJyEaZ3xGNaoVCab6ljWOJ46lxa2TRQf2XDUX8x3YSEhAw74FyWRfIH4HxQ44X2lTTGhQPzh4uBTfOY0IXzXcHiwt80T-ftw&key=AIzaSyCiLnAnf7lO4xjE_s2mVKRqPDHwK6mWeXw",
-    "usersIds": ["3","4","5"]
+    "usersIds": ["3","4","5"],
+    "rating":"5"
+  }
+  ],
+  "events" :[{
+    "name":"Skydive party",
+		"date":"1530567963922",
+		"desc":"Let's ride!",
+	  "org":"",
+		"coaches":[4],
+		"cost":"$100.00",
+		"dropZoneId":"d1",
+		"numberOfPeople":"3" 
+  },{
+    "name":"Skydive basics",
+		"date":"1530567963922",
+		"desc":"Let's ride!",
+	  "org":"Skydive party",
+		"coaches":[5],
+		"cost":"$100.00",
+		"dropZoneId":"d2",
+		"numberOfPeople":"5" 
+  },{
+    "name":"Wingsuit basics",
+		"date":"1530567963922",
+		"desc":"Let's ride!",
+	  "org":"Skydive party",
+		"coaches":[4],
+		"cost":"$100.00",
+		"dropZoneId":"d3",
+		"numberOfPeople":"4" 
   }
   ]
 }
