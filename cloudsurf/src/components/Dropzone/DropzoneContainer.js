@@ -33,12 +33,14 @@ margin: 0 auto;
 const DropzoneContainer = ({dropzone}) =>
 
 <Wrapper>
+<DropzoneImg 
+      url={dropzone.photoURL}
+      name={dropzone.name}  />
+
   <FriendDiv>
   <div class='dropzone-container'>
     {console.log(dropzone)}
-    <DropzoneImg 
-      url={dropzone.photoURL}
-      name={dropzone.name}  />
+    
     <DropzoneInfo info={dropzone} />
     <DropzoneUsers users={dropzone.userIds}/>
     <DropzoneEvents />
