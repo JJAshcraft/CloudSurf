@@ -10,7 +10,7 @@ BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment))
 const MyCalendar  = ({events}) => {
 
     return(    
-        <div className='calander'>
+        <div className='calendar'>
             <BigCalendar
                 // selectable
                 defaultView={BigCalendar.Views.MONTH}

@@ -3,10 +3,13 @@ import DropzoneImg from './DropzoneImg'
 import DropzoneInfo from './DropzoneInfo'
 import DropzoneUsers from './DropzoneUsers'
 import DropzoneEvents from './DropzoneEvents'
-import MyCalendar from './Calander';
+import MyCalendar from './Calendar';
 import styled from 'styled-components';
 import '../../App.css'
 import './dropzonecontainer.css'
+import {Route, Link} from 'react-router-dom';
+
+
 
 const OuterDiv = styled.div `
 position: relative;
@@ -58,6 +61,7 @@ const DropzoneContainer = ({dropzone, events, dropId}) =>{
     events[x].dropZoneId == dropId ? filtereEevents.push(events[x]) : null;
   }
 
+return (
 <Wrapper>
   <div className="image-background">
 <DropzoneImg 
@@ -69,7 +73,10 @@ const DropzoneContainer = ({dropzone, events, dropId}) =>{
     {console.log(dropzone)}
     
     <DropzoneInfo info={dropzone} />
-     <MyCalendar events={filtereEevents}/>
+    <Link to='/events'>See our events</Link>
+     <Route path = 'events' render={props=> {
+<MyCalendar events={filtereEevents}/>
+     }} />
     <UserDiv>
       <UserWrapper>
     <DropzoneUsers users={dropzone.userIds}/>
@@ -78,5 +85,7 @@ const DropzoneContainer = ({dropzone, events, dropId}) =>{
   </div>
 </OuterDiv>
   </Wrapper>
+)
+}
 
-export default DropzoneContainer
+export default DropzoneContainer;
