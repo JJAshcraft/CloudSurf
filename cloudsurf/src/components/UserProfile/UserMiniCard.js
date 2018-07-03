@@ -48,7 +48,7 @@ height: 20px;
 
 
 const UserMiniCard = (props) => {
-    return (<Link to='/'>
+    return (
             <FlexDiv>
           {(props.user) && <SmallProfileImage src={props.user.photoURL} />} 
           <Stacker>
@@ -56,7 +56,7 @@ const UserMiniCard = (props) => {
            <SubMessage>Where are we flyin today?</SubMessage>
            </Stacker>
           </FlexDiv>
-        </Link>
+      
       
     );
 };

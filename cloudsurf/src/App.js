@@ -136,13 +136,14 @@ SignOut = () => {
     // console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header>
+      {this.state.isLoggedIn? <div><Header >
          <LogoFlyer src = '/images/logo.svg' />
           <Firstlogo>CloudSurf</Firstlogo>
-          <Link to="/user">
-           </Link>
-         <UserMiniCard user = {this.state.currentUser}/>
+           <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
+       
+         
         
+      
         <LogButton onClick={this.SignOut}>Logout</LogButton></Header>
         
          <Route path="/user" render={props => 
