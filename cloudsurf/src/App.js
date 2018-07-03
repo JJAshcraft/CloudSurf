@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
-import DropzoneContainer from './components/Dropzone/DropzoneContainer'
-import './App.css';
+import DropzoneContainer from './components/Dropzone/DropzoneContainer';
+
 import FrontPage from './components/FrontPage';
 import firebase from './firebase';
-import styled from 'styled-components';
+
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import UserMiniCard from './components/UserProfile/UserMiniCard';
+import styled from 'styled-components';
+import './App.css';
 
 const Header = styled.div`
 background-color: #555358;
@@ -15,8 +17,9 @@ height: 60px;
 position: absolute;
 top: 0;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
+z-index: 10;
 `
 
 const Logo = styled.span`
@@ -110,9 +113,10 @@ SignOut = () => {
     return (
       <div className="App">
       {this.state.isLoggedIn? <div><Header>
-         <Logo>CloudSurf</Logo> <UserMiniCard user = {this.state.currentUser}/>
+         <Logo>CloudSurf</Logo>
+         <UserMiniCard user = {this.state.currentUser}/>
         
-        <button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button  name='google' onClick={this.SignIn}>Facebook Login</button> </Header></div>}
+        <button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button name='facebook' onClick={this.SignIn}>Facebook Login</button> </Header></div>}
  
       {this.state.dropzones 
        ? <div>
