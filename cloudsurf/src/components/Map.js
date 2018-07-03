@@ -1,6 +1,6 @@
 import React from 'react';
 import {GoogleApiWrapper, Map, Marker} from 'google-maps-react';
-import { link } from 'fs';
+import { Link } from 'react-router-dom';
 
 
 class MapContainer extends React.Component {
