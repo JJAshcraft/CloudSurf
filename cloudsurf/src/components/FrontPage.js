@@ -7,9 +7,9 @@ class FrontPage extends Component {
     render() {
         return ( 
             <div class='bg'>
-                <video autoPlay loop id="video-background" muted plays-inline>
-                 < source src = "https://www.youtube.com/watch?v=vqMI56Di4oo" /> type = "video/mp4" >
-</video>
+                {/* <video autoPlay loop id="video-background" muted plays-inline>
+                 < source src = "https://vimeo.com/user61060427/review/278179280/b16eff9043" /> type = "video/mp4" >
+</video> */}
             
             <div class='login-box'>
 

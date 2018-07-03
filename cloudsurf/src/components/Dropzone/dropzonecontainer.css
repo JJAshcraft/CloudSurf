@@ -17,14 +17,28 @@
     0 5px 15px 0 rgba(0, 0, 0, 0.08);
 }
 
+.image-background {
+background-color: #232323;
+}
 
 .dzimage {
     max-width: 430px;
+    max-height:300px;
+    
 }
 
 .dzuser {
+    display: block;
     color: orange;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #323232;
+    width: 400px;
+    text-align: center;
+    margin: 5px;
 }
+
 
 #video-background {
     /*  making the video fullscreen  */
