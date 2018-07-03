@@ -13,10 +13,11 @@ class MapContainer extends React.Component {
     render(){
         const style = {
             width: '100%',
-            position: 'absolute',
-            top: '100px',
-            overflow: 'hidden'
-            
+position:'absolute',
+top:'40px',
+            height: '95vh',
+            bottom: '0',
+  
           }
           const drop = [];
         //   console.log(this.props.dropzone)

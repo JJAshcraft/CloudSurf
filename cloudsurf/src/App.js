@@ -1,20 +1,59 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
-import DropzoneContainer from './components/Dropzone/DropzoneContainer'
-import './App.css';
+import DropzoneContainer from './components/Dropzone/DropzoneContainer';
+
 import FrontPage from './components/FrontPage';
-import firebase, {auth, provider} from './firebase';
+import firebase from './firebase';
+
 import styled from 'styled-components';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import UserMiniCard from './components/UserProfile/UserMiniCard';
+import UserFullCard from './components/UserProfile/UserFullCard';
+import './App.css';
+
 
 const Header = styled.div`
-background-color: #555358;
+background-color: #363636;
 width: 100%;
-height: 100px;
+height: 60px;
 position: absolute;
 top: 0;
+display: flex;
+justify-content: flex-start;
+align-items: center;
+z-index: 10;
 `
-// import UserList from './components/UserList';
+
+const Firstlogo = styled.span`
+font-family: 'Pacifico', cursive;
+ padding-left: 36px;
+padding-bottom: 5px;
+ font-size: 28px;
+ color: white;
+ vertical-align: center;
+ z-index: 30;
+`
+
+const LogButton = styled.button `
+height: 100%;
+width: 230px;
+background-color: #FAA74A;
+color: white;
+border: none;
+cursor: pointer;
+font-size: 22px;
+position: absolute;
+top: 0;
+right: 0;
+`
+const LogoFlyer = styled.img`
+position: absolute;
+top: -25px;
+left: -75px;
+z-index: 20;
+width: 250px;
+
+`
 
 
 class App extends Component {
@@ -32,6 +71,8 @@ class App extends Component {
   }
 
   componentDidMount() {
+
+
     let usersRef = firebase.database().ref('users');
     usersRef.on('value', snapshot => {
       // console.log(snapshot.val())
@@ -40,7 +81,6 @@ class App extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        
         this.setState({
           isLoggedIn: true,
           currentUser: user,
@@ -70,35 +110,31 @@ class App extends Component {
     })
   }
 
-FacebookSignIn = () => {
-firebase.auth().signInWithPopup(provider)
-.then(function (result) {
-  if (result.credential) {
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    var token = result.credential.accessToken;
-    // ...
-  }
-  // The signed-in user info.
-  var user = result.user;
-  console.log(user);
-}).catch(function (error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-});
+SignIn = (e) => {
+  let provider;
+     if (e.target.name === 'facebook') {
+      provider = new firebase.auth.FacebookAuthProvider();
+     } else if (e.target.name === 'google') {
+      provider = new firebase.auth.GoogleAuthProvider();
+     }
+      firebase.auth().signInWithPopup(provider)
+      .then(({ user }) => {
+        this.setState({ 
+          currentUser: user,
+          isLoggedIn: true,
+         })
+      })
 }  
 
 SignOut = () => {
-  firebase.auth().signOut().then(function () {
-    // Sign-out successful.
-  }).catch(function (error) {
-    // An error happened.
-  });
-  this.setState({isLoggedIn:false})
+
+      firebase.auth().signOut().then(() => {
+        this.setState({
+          currentUser: null,
+          isLoggedIn: false,
+        })
+      })
+
 
 }
 
@@ -106,18 +142,37 @@ SignOut = () => {
   render() {    
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
- 
-      {this.state.dropzones 
-       ? <div>
+      {this.state.isLoggedIn? <div><Header >
+         <LogoFlyer src = '/images/logo.svg' />
+          <Firstlogo>CloudSurf</Firstlogo>
+           <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
+       
+         
+        
+      
+        <LogButton onClick={this.SignOut}>Logout</LogButton></Header>
+        
+         <Route path="/user" render={props => 
+              <UserFullCard 
+                  {...props} 
+                  user={this.state.currentUser} />
+            } />
+         <Route path='/' render={(props) => {
+            return <Map {...props}  dropzone={this.state.dropzones}/>
+
+          }}/></div>: <div><FrontPage><button name='facebook' onClick={this.SignIn}>Facebook Login</button></FrontPage></div>}
+ <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
             return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
           }} />
           <Route path='/' render={(props) => ( <Map {...props}  dropzone={this.state.dropzones}/> ) }  />
+          }}/>
+          
+          
           
          </div>
-       : <div>Loading ...</div> }
+   
       </div>
     );
   }
