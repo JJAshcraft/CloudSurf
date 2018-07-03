@@ -7,11 +7,12 @@ import firebase from './firebase';
 
 import { Route, BrowserRouter as Router } from 'react-router-dom';
 import UserMiniCard from './components/UserProfile/UserMiniCard';
+
 import styled from 'styled-components';
 import './App.css';
 
 const Header = styled.div`
-background-color: #555358;
+background-color: #363636;
 width: 100%;
 height: 60px;
 position: absolute;
@@ -22,15 +23,37 @@ align-items: center;
 z-index: 10;
 `
 
-const Logo = styled.span`
- padding-left: 10px;
- padding-right: 15px;
- border-right: 1px solid white;
+const Firstlogo = styled.span`
+font-family: 'Pacifico', cursive;
+ padding-left: 36px;
+padding-bottom: 5px;
  font-size: 28px;
  color: white;
- font-weight: bold;
  vertical-align: center;
+ z-index: 30;
 `
+
+const LogButton = styled.button `
+height: 100%;
+width: 230px;
+background-color: #FAA74A;
+color: white;
+border: none;
+cursor: pointer;
+font-size: 22px;
+position: absolute;
+top: 0;
+right: 0;
+`
+const LogoFlyer = styled.img`
+position: absolute;
+top: -25px;
+left: -75px;
+z-index: 20;
+width: 250px;
+
+`
+
 
 class App extends Component {
   constructor() {
@@ -113,25 +136,25 @@ SignOut = () => {
     return (
       <div className="App">
       {this.state.isLoggedIn? <div><Header>
-         <Logo>CloudSurf</Logo>
+         <LogoFlyer src = '/images/logo.svg' />
+          <Firstlogo>CloudSurf</Firstlogo>
          <UserMiniCard user = {this.state.currentUser}/>
         
-        <button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button name='facebook' onClick={this.SignIn}>Facebook Login</button> </Header></div>}
+        <LogButton onClick={this.SignOut}>Logout</LogButton></Header> <Route path='/' render={(props) => {
+            return <Map {...props}  dropzone={this.state.dropzones}/>
+
+          }}/></div>: <div><FrontPage><button name='facebook' onClick={this.SignIn}>Facebook Login</button></FrontPage></div>}
  
-      {this.state.dropzones 
-       ? <div>
+      <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
             return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
           }}/>
-          />
-          <Route path='/' render={(props) => {
-            return <Map {...props}  dropzone={this.state.dropzones}/>
-
-          }}/>
+          
+          
           
          </div>
-       : <div>Loading ...</div> }
+   
       </div>
     );
   }
