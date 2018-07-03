@@ -1,13 +1,16 @@
 import React, { Component } from 'react';
 import Map from './components/Map';
-import DropzoneContainer from './components/Dropzone/DropzoneContainer'
-import './App.css';
+import DropzoneContainer from './components/Dropzone/DropzoneContainer';
+
 import FrontPage from './components/FrontPage';
 import firebase from './firebase';
+
 import styled from 'styled-components';
 import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import UserMiniCard from './components/UserProfile/UserMiniCard';
 import UserFullCard from './components/UserProfile/UserFullCard';
+import './App.css';
+
 
 const Header = styled.div`
 background-color: #555358;
@@ -16,8 +19,9 @@ height: 60px;
 position: absolute;
 top: 0;
 display: flex;
-justify-content: center;
+justify-content: flex-start;
 align-items: center;
+z-index: 10;
 `
 
 const Logo = styled.span`
@@ -110,6 +114,7 @@ SignOut = () => {
     // console.log(this.state.dropzones)
     return (
       <div className="App">
+
       {this.state.isLoggedIn
         ? <div>
             <Header>
@@ -130,6 +135,7 @@ SignOut = () => {
               <button  name='google' onClick={this.SignIn}>Facebook Login</button> 
             </Header>
           </div>}
+
  
       {this.state.dropzones 
        ? <div>
