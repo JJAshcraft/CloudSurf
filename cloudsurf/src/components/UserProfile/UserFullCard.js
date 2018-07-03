@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import styled from 'styled-components';
+import { Button, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
 
 const styles = {
     display: 'flex',
@@ -13,77 +15,171 @@ const styles = {
     overflow: 'scroll'
 }
 
+
+const OuterDiv = styled.div `
+position: relative;
+width: 430px;
+display: flex;
+justify-content: center;
+align-items:center;
+text-align: center;
+background-color: #282828;
+color: white;
+list-style: none;
+flex-direction: column;
+overflow-y: auto;
+height: 80%;
+align-items: flex-start;
+`
+
+const UserDiv = styled.div `
+position: relative;
+width: 430px;
+display: flex;
+justify-content: center;
+align-items:center;
+text-align: center;
+background-color: #282828;
+color: white;
+list-style: none;
+flex-direction: column;
+overflow-y: scroll;
+height: 100px;
+align-items: flex-start;
+`
+
+const Wrapper = styled.div `
+position:absolute;
+top: 70px;
+height: 70vh;
+margin: 0 auto;
+z-index: 400;
+
+`
+const UserWrapper = styled.div `
+position: Absolute;
+height: 100%;
+`
+const UserProfileImage = styled.div`
+max-width: 430px;
+max-height:300px;
+`
+const FlexDiv = styled.div`
+display:flex;
+justify-content: center;
+align-items: center;
+color: whitesmoke;
+`
+
+
 class UserFullCard extends Component {
 
     render() {
         return (
-            <div style={styles}>
-                <Link to="/">Close</Link>
-                <img style={{width: '50px'}} src={this.props.user.photoURL} />
-                <label for="name">
-                    Name
-                    <input id="name" type="text" value={this.props.user.displayName} />
-                </label>
-                <label for="email">
-                    Email
-                    <input id="email" type="email" value={this.props.user.email} />
-                </label>
-                <label for="phone">
-                    Phone
-                    <input id="phone" type="phone" name="phone"  />
-                </label>
+
+<Wrapper>
+    
+  <div className="image-background">
+  <Link style ={{textDecoration: 'none', color:'white', float: 'right', padding: '10px'}} to='/'>CLOSE</Link>
+    <FlexDiv><img className='userimage' src={this.props.user.photoURL} /> <h1>User Profile</h1></FlexDiv>
+
+</div>
+  <OuterDiv>
+
+    
+  <Form>
+        <FormGroup>
+           <Label for="name">
+                    Name</Label>
+                    <Input id="name" type="text" value={this.props.user.displayName} />
+                
+                <Label for="email">
+                    Email </Label>
+                    <Input id="email" type="email" value={this.props.user.email} />
+               
+                <Label for="phone">
+                    Phone </Label>
+                    <Input id="phone" type="phone" name="phone"  />
+               
+                 </FormGroup>
+                  <FormGroup>
+                
                 <p>Type of flying you do:</p>
-                <label for="acrobatics">
-                    <input type="checkbox" id="acrobatics" />
-                    Acrobatics
-                </label>
-                <label for="performance">
-                    <input type="checkbox" id="performance" />
+                
+                <Label for="acrobatics"> 
+                 <Input type="checkbox" id="acrobatics" />
+                Acrobatics     
+                </Label><br/>
+              
+                <Label for="performance">
+                    <Input type="checkbox" id="performance" />
                     Performance
-                </label>
-                <label for="flock">
-                    <input type="checkbox" id="flock" />
+                </Label><br/>
+
+                <Label for="flock">
+                    <Input type="checkbox" id="flock" />
                     Flock
-                </label>
-                <label for="xrw">
-                    <input type="checkbox" id="xrw" />
+                </Label><br/>
+                
+                <Label for="xrw">
+                    <Input type="checkbox" id="xrw" />
                     XRW
-                </label>
+                </Label>
+                 </FormGroup>
+                 <FormGroup>
+                
                 <p>Suit type:</p>
-                <label for="wingsuit-beginner">
+        
+                <Label for="wingsuit-beginner">
+                 <Input type="radio" id="wingsuit-beginner" name="1" />
                     Beginner
-                    <input type="radio" id="wingsuit-beginner" name="1" />
-                </label>
-                <label for="wingsuit-intermediate">
+                </Label><br/>
+                <Label for="wingsuit-intermediate">
+                 <Input type="radio" id="wingsuit-intermediate" name="2" />
                     Intermediate
-                    <input type="radio" id="wingsuit-intermediate" name="2" />
-                </label>
-                <label for="wingsuit-advanced">
+                   
+                </Label><br/>
+                <Label for="wingsuit-advanced">
+                  <Input type="radio" id="wingsuit-advanced" name="3" />
                     Advanced
-                    <input type="radio" id="wingsuit-advanced" name="3" />
-                </label>
-                <label for="no-coach">
-                    No
-                    <input type="radio" id="no-coach" name="is-coach" />
-                </label>
-                <label for="home-dropzone">
+                  
+                </Label>
+           
+                </FormGroup>
+                
+                 <FormGroup>
+        
+                <Label for="home-dropzone">
                     Home Dropzone
-                    <input type="text" id="home-dropzone" />
-                </label>
-                <label for="state">
+                    <Input type="text" id="home-dropzone" />
+                </Label>
+                <Label for="state">
                     State
-                    <input type="text" id="state" />
-                </label>
+                    <Input type="text" id="state" />
+                </Label>
+
+                 </FormGroup>
+                  <FormGroup>
                 <p>Are you a coach?</p>
-                <label for="yes-coach">
+                <Label for="yes-coach">
+                 <Input type="radio" id="yes-coach" name="is-coach" />
                     Yes
-                    <input type="radio" id="yes-coach" name="is-coach" />
-                </label>
-                <label for="no-coach">
+                   
+                </Label><br/>
+                <Label for="no-coach">
+                  <Input type="radio" id="no-coach" name="is-coach" />
                     No
-                    <input type="radio" id="no-coach" name="is-coach" />
-                </label>
-            </div>
+                </Label>
+                 </FormGroup>
+                 <button className='btn btn-lg btn-danger  '>Submit</button><br/>
+ </Form>
+   
+
+</OuterDiv>
+  </Wrapper>
+
+                
+          
         )
     }
     

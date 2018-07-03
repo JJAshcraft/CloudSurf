@@ -7,15 +7,16 @@ const FlexDiv = styled.div`
  justify-content: flex-start; 
  align-items: center;
  padding: 5px;
+ text-decoration: none;
  &:Hover {
      background: #242424;
  }
 `
 const SmallProfileImage = styled.img`
-width: 40px;
+width: 65px;
 height: 40px;
-padding-left: 15px;
-padding-right: 10px;
+padding-left: 10px;
+padding-right: 15px;
 `
 const WelcomeMessage = styled.p`
 font-family: 'Roboto', sans-serif;
@@ -25,6 +26,7 @@ text-align: left;
 padding: 0;
 color: white;
 margin: 0;  
+ text-decoration: none;
 `
 
 const SubMessage = styled.p `

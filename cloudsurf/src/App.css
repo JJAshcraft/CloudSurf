@@ -13,3 +13,7 @@ height: 100%;
 #custom-orange{
   background-color: #FAA74A;
 }
+
+.link-style {
+   text-decoration: none;
+}

@@ -152,10 +152,8 @@ toggle = ()=> {
       {this.state.isLoggedIn? <div><Header >
            <LogoFlyer src = '/images/logo.svg' />
           <Firstlogo>CloudSurf</Firstlogo>
-           <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
+           <Link style ={{textDecoration: 'none'}} to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
        
-       
-        
       
         <Link to='/'><LogButton onClick={this.SignOut}>Logout</LogButton></Link>  
         </Header>
