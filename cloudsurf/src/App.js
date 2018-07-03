@@ -3,6 +3,7 @@ import Map from './components/Map';
 import DropzoneContainer from './components/Dropzone/DropzoneContainer';
 
 import FrontPage from './components/FrontPage';
+import About from './components/About';
 import firebase from './firebase';
 
 import styled from 'styled-components';
@@ -11,6 +12,8 @@ import UserMiniCard from './components/UserProfile/UserMiniCard';
 import UserFullCard from './components/UserProfile/UserFullCard';
 import './App.css';
 
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+import Calendar from './components/Dropzone/Calendar'
 
 const Header = styled.div`
 background-color: #262626;
@@ -66,13 +69,13 @@ class App extends Component {
       isLoggedIn: false,
       // firebase returns indexed objects
       dropzones: null,
-      events: []
+      events: [],
+      modal:false,
     }
  
   }
 
   componentDidMount() {
-
 
     let usersRef = firebase.database().ref('users');
     usersRef.on('value', snapshot => {
@@ -137,6 +140,11 @@ SignOut = () => {
       })
 }
 
+toggle = ()=> {
+  this.setState({
+    modal: !this.state.modal
+  });
+}
 
   render() {    
     return (
@@ -148,28 +156,35 @@ SignOut = () => {
        
       
         <Link to='/'><LogButton onClick={this.SignOut}>Logout</LogButton></Link>  
-        
         </Header>
-        
+        <Route path='/' exact render={(props) =>  (<Map {...props}  dropzone={this.state.dropzones}/>) }/>
          <Route path="/user" render={props => 
               <UserFullCard 
                   {...props} 
                   user={this.state.currentUser} />
             } />
-         <Route path='/' render={(props) => {
-            return <Map {...props}  dropzone={this.state.dropzones}/>
-
-          }}/></div>: <div><FrontPage SignIn={this.SignIn}/></div>}
- <div>
+      </div> : 
+      <div>
+        <FrontPage SignIn={this.SignIn}/>
+        </div>}
+        <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
-            return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
+            return <DropzoneContainer calendarModalToggle={this.toggle} events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
           }}/>
-          
-          
+          <Route path="/about" exact component={About}/>
           
          </div>
-   
+         <Modal isOpen={this.state.modal} toggle={this.toggle} className={`${this.props.className} modal-lg`}>
+          <ModalHeader toggle={this.toggle}>Drop by one of our events!</ModalHeader>
+          <ModalBody>
+            <Calendar />
+          </ModalBody>
+          <ModalFooter>
+            <Button id="custom-orange" onClick={this.toggle}>Reserve Your Spot</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
       </div>
     );
   }

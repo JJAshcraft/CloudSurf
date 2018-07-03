@@ -167,7 +167,13 @@ chownr@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/chownr/-/chownr-1.0.1.tgz#e2a75042a9551908bebd25b8523d5f9769d79181"
 
+<<<<<<< HEAD
+classnames@^2.1.3, classnames@^2.2.4, classnames@^2.2.5:
+||||||| merged common ancestors
+classnames@^2.2.4:
+=======
 classnames@^2.1.3, classnames@^2.2.5:
+>>>>>>> 9e178eb5a7fe95faefc92ec39d4e8074fbcc3fd8
   version "2.2.6"
   resolved "https://registry.yarnpkg.com/classnames/-/classnames-2.2.6.tgz#43935bffdd291f326dad0a205309b38d00f650ce"
 
@@ -588,6 +594,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
+<<<<<<< HEAD
 react-big-calendar@^0.19.2:
   version "0.19.2"
   resolved "https://registry.yarnpkg.com/react-big-calendar/-/react-big-calendar-0.19.2.tgz#f9a7847930593db1ccbad05f2683a77bd7e1c901"
@@ -602,6 +609,56 @@ react-big-calendar@^0.19.2:
     react-prop-types "^0.4.0"
     uncontrollable "^4.0.0"
     warning "^2.0.0"
+
+react-event-calendar@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-event-calendar/-/react-event-calendar-0.3.0.tgz#b4d7d288f8fc5645fabcc120f736a66f6cd6935d"
+  dependencies:
+    calendar-base "^0.2.1"
+    classnames "^2.2.4"
+||||||| merged common ancestors
+react-event-calendar@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/react-event-calendar/-/react-event-calendar-0.3.0.tgz#b4d7d288f8fc5645fabcc120f736a66f6cd6935d"
+  dependencies:
+    calendar-base "^0.2.1"
+    classnames "^2.2.4"
+=======
+react-big-calendar@^0.19.2:
+  version "0.19.2"
+  resolved "https://registry.yarnpkg.com/react-big-calendar/-/react-big-calendar-0.19.2.tgz#f9a7847930593db1ccbad05f2683a77bd7e1c901"
+  dependencies:
+    classnames "^2.1.3"
+    date-arithmetic "^3.0.0"
+    dom-helpers "^2.3.0 || ^3.0.0"
+    invariant "^2.1.0"
+    lodash "^4.17.4"
+    prop-types "^15.5.8"
+    react-overlays "^0.7.0"
+    react-prop-types "^0.4.0"
+    uncontrollable "^4.0.0"
+    warning "^2.0.0"
+
+react-is@^16.3.2:
+  version "16.4.1"
+  resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.4.1.tgz#d624c4650d2c65dbd52c72622bbf389435d9776e"
+
+react-overlays@^0.7.0:
+  version "0.7.4"
+  resolved "https://registry.yarnpkg.com/react-overlays/-/react-overlays-0.7.4.tgz#ef2ec652c3444ab8aa014262b18f662068e56d5c"
+  dependencies:
+    classnames "^2.2.5"
+    dom-helpers "^3.2.1"
+    prop-types "^15.5.10"
+    prop-types-extra "^1.0.1"
+    warning "^3.0.0"
+
+react-prop-types@^0.4.0:
+  version "0.4.0"
+  resolved "https://registry.yarnpkg.com/react-prop-types/-/react-prop-types-0.4.0.tgz#f99b0bfb4006929c9af2051e7c1414a5c75b93d0"
+  dependencies:
+    warning "^3.0.0"
+>>>>>>> 9e178eb5a7fe95faefc92ec39d4e8074fbcc3fd8
 
 react-is@^16.3.2:
   version "16.4.1"
