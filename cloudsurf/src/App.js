@@ -5,11 +5,12 @@ import DropzoneContainer from './components/Dropzone/DropzoneContainer';
 import FrontPage from './components/FrontPage';
 import firebase from './firebase';
 
-import { Route, BrowserRouter as Router } from 'react-router-dom';
-import UserMiniCard from './components/UserProfile/UserMiniCard';
-
 import styled from 'styled-components';
+import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
+import UserMiniCard from './components/UserProfile/UserMiniCard';
+import UserFullCard from './components/UserProfile/UserFullCard';
 import './App.css';
+
 
 const Header = styled.div`
 background-color: #363636;
@@ -70,6 +71,7 @@ class App extends Component {
 
   componentDidMount() {
 
+
     let usersRef = firebase.database().ref('users');
     usersRef.on('value', snapshot => {
       // console.log(snapshot.val())
@@ -78,7 +80,6 @@ class App extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        
         this.setState({
           isLoggedIn: true,
           currentUser: user,
@@ -138,14 +139,22 @@ SignOut = () => {
       {this.state.isLoggedIn? <div><Header>
          <LogoFlyer src = '/images/logo.svg' />
           <Firstlogo>CloudSurf</Firstlogo>
+          <Link to="/user">
+           </Link>
          <UserMiniCard user = {this.state.currentUser}/>
         
-        <LogButton onClick={this.SignOut}>Logout</LogButton></Header> <Route path='/' render={(props) => {
+        <LogButton onClick={this.SignOut}>Logout</LogButton></Header>
+        
+         <Route path="/user" render={props => 
+              <UserFullCard 
+                  {...props} 
+                  user={this.state.currentUser} />
+            } />
+         <Route path='/' render={(props) => {
             return <Map {...props}  dropzone={this.state.dropzones}/>
 
           }}/></div>: <div><FrontPage><button name='facebook' onClick={this.SignIn}>Facebook Login</button></FrontPage></div>}
- 
-      <div>
+ <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
             return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
