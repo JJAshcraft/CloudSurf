@@ -7,5 +7,28 @@
 }
 .calander{
   height: 348px;
-  margin-top: 710px;
+  margin-top: 800px;
+  background-color: white;
+  color: black;
+}
+
+.about{
+  /* width: 700px; */
+  margin: auto;
+  padding-top: 100px;
+  color: white;
+  position: relative;
+  text-align: start;
+}
+.about li{
+  list-style: none;
+  margin: 10px 0;
+}
+.about__feature{
+  font-size: 25px;
+  font-weight: bold;
+}
+.about__text{
+  width: 700px;
+  margin: auto;
 }
