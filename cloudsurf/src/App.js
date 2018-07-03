@@ -141,13 +141,14 @@ SignOut = () => {
   render() {    
     return (
       <div className="App">
-      {this.state.isLoggedIn? 
-      <div>
-        <Header >
-            <LogoFlyer src = '/images/logo.svg' />
-            <Firstlogo>CloudSurf</Firstlogo>
-            <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
-            <Link to='/'><LogButton onClick={this.SignOut}>Logout</LogButton></Link>  
+      {this.state.isLoggedIn? <div><Header >
+           <LogoFlyer src = '/images/logo.svg' />
+          <Firstlogo>CloudSurf</Firstlogo>
+           <Link style ={{textDecoration: 'none'}} to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
+       
+      
+        <Link to='/'><LogButton onClick={this.SignOut}>Logout</LogButton></Link>  
+        
         </Header>
         <Route path='/' exact render={(props) =>  (<Map {...props}  dropzone={this.state.dropzones}/>) }/>
          <Route path="/user" render={props => 

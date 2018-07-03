@@ -2,33 +2,44 @@
 .App {
   text-align: center;
   /* display: flex; */
-
+height: 100%;
  
 }
-.calander{
-  height: 348px;
-  margin-top: 800px;
-  background-color: white;
-  color: black;
+.calendar{
+      position: absolute;
+      z-index: 1000;
+      top: 70px;
+      left: 30px;
+      width:330px;
+      height: 560px;
+      background-color:white;
+      color: whitesmoke;
+      margin: 30px auto;
+      box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
+      0 5px 15px 0 rgba(0, 0, 0, 0.08);
 }
 
+.link-style {
+   text-decoration: none;
+}
 .about{
-  /* width: 700px; */
-  margin: auto;
-  padding-top: 100px;
   color: white;
-  position: relative;
-  text-align: start;
-}
-.about li{
-  list-style: none;
-  margin: 10px 0;
-}
-.about__feature{
-  font-size: 25px;
-  font-weight: bold;
+  padding-top: 100px;
+  letter-spacing: 1.2px;
+
 }
 .about__text{
   width: 700px;
   margin: auto;
+  text-align: start;
+}
+.about li{
+  list-style: none;
+  margin: 5px 0;
+}
+.about__feature{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: rgb(95, 171, 190);
 }

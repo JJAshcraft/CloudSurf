@@ -1,9 +1,9 @@
 
-.dropzone-contain {
+.dropzone-container {
     font-family: 'Roboto', sans-serif;
     position: absolute;
     z-index: 1000;
-    top: 70px;
+    top: 0px;
     left: 30px; 
     width:330px;
     height: 560px;
@@ -17,14 +17,33 @@
     0 5px 15px 0 rgba(0, 0, 0, 0.08);
 }
 
+.image-background {
+background-color: #232323;
+text-decoration: none;
+}
 
 .dzimage {
     max-width: 430px;
+    max-height:300px;
+    
+}
+.userimage {
+    display: inline-block;
+    border-right: 1px solid grey;
+    padding-right: 20px;
+}
+.dzuser {
+    display: block;
+    color: orange;
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #323232;
+    width: 400px;
+    text-align: center;
+    margin: 5px;
 }
 
-.dzuser {
-    color: orange;
-}
 
 #video-background {
     /*  making the video fullscreen  */

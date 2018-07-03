@@ -19,7 +19,7 @@ const MyCalendar  = ({events2}) => {
     }
     ]
     return(    
-        <div className='calander'>
+        <div className='calendar'>
             <BigCalendar
                 selectable
                 defaultView={BigCalendar.Views.MONTH}
