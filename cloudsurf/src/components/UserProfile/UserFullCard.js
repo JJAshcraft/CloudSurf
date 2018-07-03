@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Link } from 'react-router-dom'
 
 const styles = {
     display: 'flex',
@@ -17,6 +18,7 @@ class UserFullCard extends Component {
     render() {
         return (
             <div style={styles}>
+                <Link to="/">Close</Link>
                 <img style={{width: '50px'}} src={this.props.user.photoURL} />
                 <label for="name">
                     Name
@@ -28,7 +30,7 @@ class UserFullCard extends Component {
                 </label>
                 <label for="phone">
                     Phone
-                    <input id="phone" type="phone"  />
+                    <input id="phone" type="phone" name="phone"  />
                 </label>
                 <p>Type of flying you do:</p>
                 <label for="acrobatics">
