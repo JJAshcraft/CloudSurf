@@ -13,7 +13,7 @@ import './App.css';
 
 
 const Header = styled.div`
-background-color: #363636;
+background-color: #262626;
 width: 100%;
 height: 60px;
 position: absolute;
@@ -26,8 +26,10 @@ z-index: 10;
 
 const Firstlogo = styled.span`
 font-family: 'Pacifico', cursive;
- padding-left: 36px;
+ padding-left: 6px;
+ padding-right: 30px;
 padding-bottom: 5px;
+border-right: 1px solid grey;
  font-size: 28px;
  color: white;
  vertical-align: center;
@@ -47,11 +49,10 @@ top: 0;
 right: 0;
 `
 const LogoFlyer = styled.img`
-position: absolute;
-top: -25px;
-left: -75px;
-z-index: 20;
-width: 250px;
+position: relative;
+z-index: 1000;
+width: 160px;
+top:-17px;
 
 `
 
@@ -137,14 +138,16 @@ SignOut = () => {
     return (
       <div className="App">
       {this.state.isLoggedIn? <div><Header >
-         <LogoFlyer src = '/images/logo.svg' />
+           <LogoFlyer src = '/images/logo.svg' />
           <Firstlogo>CloudSurf</Firstlogo>
            <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
        
-         
+       
         
       
-        <LogButton onClick={this.SignOut}>Logout</LogButton></Header>
+        <Link to='/'><LogButton onClick={this.SignOut}>Logout</LogButton></Link>  
+        
+        </Header>
         
          <Route path="/user" render={props => 
               <UserFullCard 
@@ -154,7 +157,7 @@ SignOut = () => {
          <Route path='/' render={(props) => {
             return <Map {...props}  dropzone={this.state.dropzones}/>
 
-          }}/></div>: <div><FrontPage><button name='facebook' onClick={this.SignIn}>Facebook Login</button></FrontPage></div>}
+          }}/></div>: <div><FrontPage SignIn={this.SignIn}/></div>}
  <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)

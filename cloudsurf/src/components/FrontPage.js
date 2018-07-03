@@ -1,17 +1,32 @@
 import React, { Component } from 'react';
-
+import '../frontpage.css';
+import {Link} from 'react-router-dom';
 
 class FrontPage extends Component {
-    
+
     render() {
-        return (
-            <div>
-               {/* <video id="background-video" loop autoPlay>
-    <source src="https://streamable.com/7ua1i" type="video/mp4" />
-    Your browser does not support the video tag.
-</video> */}
+        return ( 
+            <div class='bg'>
+                <video autoPlay loop id="video-background" muted plays-inline>
+                 < source src = "https://www.youtube.com/watch?v=vqMI56Di4oo" /> type = "video/mp4" >
+</video>
+            
+            <div class='login-box'>
+
+
+            
+            <img src="/images/login.svg" alt=""/>
+                    <button name='facebook' onClick ={this.props.SignIn} class="loginBtn loginBtn--facebook">
+  Login with facebook
+</button>
+
+<button name='google' onClick ={this.props.SignIn}  class="loginBtn loginBtn--google">
+  Login with Google
+</button><br/><br/>
+<span>Not a member? <br/></span> <Link to='/'> Click Here to Sign Up.</Link>
 
             </div>
+          </div>
         );
     }
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import DropzoneUser from './DropzoneUser'
 import firebase from '../../firebase'
+import './dropzonecontainer.css';
 
 class DropzoneUsers extends React.Component{
   constructor(props){
@@ -20,7 +21,7 @@ class DropzoneUsers extends React.Component{
   }
 
   render(){
-      return ( <div>
+      return ( <div className='users'>
                 {this.usersArray.map( user =>{
                   if (user) return <DropzoneUser key={Math.random()} user={user} />
                 })}

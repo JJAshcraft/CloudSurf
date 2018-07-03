@@ -15,8 +15,8 @@ class MapContainer extends React.Component {
             width: '100%',
 position:'absolute',
 top:'40px',
-            height: '95vh',
-            bottom: '0',
+            height: '90vh',
+            top: '0',
   
           }
           const drop = [];

@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import './dropzonecontainer.css';
 
 /* <DropzoneImg 
      url={photoURL}
@@ -6,7 +7,7 @@ import React from 'react'
 */
 
 const DropzoneImg = ({url, name}) =>  
-  <img src={url} alt={name} />
+  <img className='dzimage' src={url} alt={name} />
 
 export default DropzoneImg
 
