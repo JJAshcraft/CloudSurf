@@ -25,13 +25,13 @@ class App extends Component {
       currentUser: null,
       isLoggedIn: false,
       // firebase returns indexed objects
-      dropzones: null
+      dropzones: null,
+      events: []
     }
  
   }
 
   componentDidMount() {
-
     let usersRef = firebase.database().ref('users');
     usersRef.on('value', snapshot => {
       // console.log(snapshot.val())
@@ -56,11 +56,17 @@ class App extends Component {
 
 
     let dzRef = firebase.database().ref('dropzones');
+    
     dzRef.on('value', snapshot => {
       // let dropzones = Object.entries(snapshot.val())
       const dropzones = snapshot.val();
-      // for(let x )
       this.setState({ dropzones })
+    })
+    let eventRef = firebase.database().ref('events');
+    eventRef.on('value', snapshot => {
+      // let dropzones = Object.entries(snapshot.val())
+      const events = snapshot.val();
+      this.setState({ events })
     })
   }
 
@@ -97,8 +103,7 @@ SignOut = () => {
 }
 
 
-  render() {
-    // console.log(this.state.dropzones)
+  render() {    
     return (
       <div className="App">
       {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
@@ -107,13 +112,9 @@ SignOut = () => {
        ? <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
-            return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
-          }}/>
-          />
-          <Route path='/' render={(props) => {
-            return <Map {...props}  dropzone={this.state.dropzones}/>
-
-          }}/>
+            return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
+          }} />
+          <Route path='/' render={(props) => ( <Map {...props}  dropzone={this.state.dropzones}/> ) }  />
           
          </div>
        : <div>Loading ...</div> }
@@ -121,5 +122,4 @@ SignOut = () => {
     );
   }
 }
-
 export default App;

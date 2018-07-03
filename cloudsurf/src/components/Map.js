@@ -37,10 +37,9 @@ class MapContainer extends React.Component {
                     { drop.map(zone => {
 
                         return <Marker onClick={() => this.handleClick(zone.id)}
-                                            position={{lat: zone.data.lat, lng: zone.data.lng}}
-                                            key={zone.id}
-                                        />
-                                 
+                                    position={{lat: zone.data.lat, lng: zone.data.lng}}
+                                    key={zone.id}
+                                />
                         })
                     }
                     
