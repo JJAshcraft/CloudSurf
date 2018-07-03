@@ -98,7 +98,7 @@ SignOut = () => {
     console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header><Map dropzone={this.state.dropzones} /> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
+      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
  
       {this.state.dropzones 
        ? <React.Fragment>
