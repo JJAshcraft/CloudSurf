@@ -5,6 +5,7 @@ import './App.css';
 import FrontPage from './components/FrontPage';
 import firebase, {auth, provider} from './firebase';
 import styled from 'styled-components';
+import { Route, BrowserRouter as Router } from 'react-router-dom';
 
 const Header = styled.div`
 background-color: #555358;
@@ -101,10 +102,13 @@ SignOut = () => {
       {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
  
       {this.state.dropzones 
-       ? <React.Fragment>
-          <DropzoneContainer dropzone={this.state.dropzones[4]} />
+       ? <div>
+          <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
+            return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[4]} />
+          }}/>
+          <Route />
           <Map dropzone={this.state.dropzones}/>
-         </React.Fragment>
+         </div>
        : <div>Loading ...</div> }
       </div>
     );
