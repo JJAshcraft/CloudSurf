@@ -12,9 +12,6 @@ class FrontPage extends Component {
 </video> */}
             
             <div class='login-box'>
-
-
-            
             <img src="/images/login.svg" alt=""/>
                     <button name='facebook' onClick ={this.props.SignIn} class="loginBtn loginBtn--facebook">
   Login with facebook

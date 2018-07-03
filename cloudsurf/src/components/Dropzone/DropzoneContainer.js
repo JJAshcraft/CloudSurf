@@ -12,7 +12,8 @@ import {Route, Link} from 'react-router-dom';
 
 const OuterDiv = styled.div `
 position: relative;
-width: 430px;
+width: 507px;
+// padding: 0 20px; 
 display: flex;
 justify-content: center;
 align-items:center;
@@ -45,7 +46,7 @@ align-items: flex-start;
 const Wrapper = styled.div `
 position:absolute;
 top: 70px;
-height: 70vh;
+height: 90vh;
 margin: 0 auto;
 `
 const UserWrapper = styled.div`

@@ -17,3 +17,24 @@ height: 100%;
 .link-style {
    text-decoration: none;
 }
+.about{
+  color: white;
+  padding-top: 100px;
+  letter-spacing: 1.2px;
+
+}
+.about__text{
+  width: 700px;
+  margin: auto;
+  text-align: start;
+}
+.about li{
+  list-style: none;
+  margin: 5px 0;
+}
+.about__feature{
+  font-size: 20px;
+  font-weight: bold;
+  margin: 20px 0;
+  color: rgb(95, 171, 190);
+}
