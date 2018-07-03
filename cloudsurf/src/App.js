@@ -157,12 +157,12 @@ toggle = ()=> {
       
         <Link to='/'><LogButton onClick={this.SignOut}>Logout</LogButton></Link>  
         </Header>
-        <Route path='/' exact render={(props) =>  (<Map {...props}  dropzone={this.state.dropzones}/>) }/>
          <Route path="/user" render={props => 
               <UserFullCard 
-                  {...props} 
-                  user={this.state.currentUser} />
+              {...props} 
+              user={this.state.currentUser} />
             } />
+          <Route path='/' render={(props) =>  (<Map {...props}  dropzone={this.state.dropzones}/>) }/>
       </div> : 
       <div>
         <FrontPage SignIn={this.SignIn}/>
