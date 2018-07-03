@@ -5,8 +5,9 @@ import './App.css';
 import FrontPage from './components/FrontPage';
 import firebase from './firebase';
 import styled from 'styled-components';
-import { Route, BrowserRouter as Router } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Link } from 'react-router-dom';
 import UserMiniCard from './components/UserProfile/UserMiniCard';
+import UserFullCard from './components/UserProfile/UserFullCard';
 
 const Header = styled.div`
 background-color: #555358;
@@ -44,6 +45,7 @@ class App extends Component {
 
   componentDidMount() {
 
+
     let usersRef = firebase.database().ref('users');
     usersRef.on('value', snapshot => {
       // console.log(snapshot.val())
@@ -52,7 +54,6 @@ class App extends Component {
 
     firebase.auth().onAuthStateChanged(user => {
       if (user) {
-        
         this.setState({
           isLoggedIn: true,
           currentUser: user,
@@ -109,10 +110,26 @@ SignOut = () => {
     // console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header>
-         <Logo>CloudSurf</Logo> <UserMiniCard user = {this.state.currentUser}/>
-        
-        <button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button  name='google' onClick={this.SignIn}>Facebook Login</button> </Header></div>}
+      {this.state.isLoggedIn
+        ? <div>
+            <Header>
+              <Logo>CloudSurf</Logo> 
+              <Link to="/user">
+                <UserMiniCard user = {this.state.currentUser}/>
+              </Link>
+              <button onClick={this.SignOut}>Logout</button>
+            </Header> 
+            <Route path="/user" render={props => 
+              <UserFullCard 
+                  {...props} 
+                  user={this.state.currentUser} />
+            } />
+          </div>
+        : <div>
+            <Header>
+              <button  name='google' onClick={this.SignIn}>Facebook Login</button> 
+            </Header>
+          </div>}
  
       {this.state.dropzones 
        ? <div>
