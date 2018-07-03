@@ -6,17 +6,12 @@ height: 100%;
  
 }
 .calendar{
-      position: absolute;
-      z-index: 1000;
-      top: 70px;
-      left: 30px;
-      width:330px;
-      height: 560px;
-      background-color:white;
-      color: whitesmoke;
-      margin: 30px auto;
-      box-shadow: 0 15px 30px 0 rgba(0, 0, 0, 0.11),
-      0 5px 15px 0 rgba(0, 0, 0, 0.08);
+  height: 400px;
+  /* margin-top: 710px; */
+}
+
+#custom-orange{
+  background-color: #FAA74A;
 }
 
 .link-style {

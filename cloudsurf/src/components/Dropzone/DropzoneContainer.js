@@ -54,7 +54,7 @@ height: 100%;
 `
 
 
-const DropzoneContainer = ({dropzone, events, dropId}) =>{
+const DropzoneContainer = ({dropzone, events, dropId, calendarModalToggle}) =>{
   const filtereEevents = []
   for(let x in events){
     events[x].dropZoneId == dropId ? filtereEevents.push(events[x]) : null;
@@ -72,6 +72,11 @@ return (
     {console.log(dropzone)}
     
     <DropzoneInfo info={dropzone} />
+    <a href="#" onClick={calendarModalToggle}>See our events</a>
+
+     <Route path = 'events' render={props=> {
+<MyCalendar events={filtereEevents}/>
+     }} />
     
     <UserDiv>
       <UserWrapper>
