@@ -5,7 +5,11 @@
 height: 100%;
  
 }
-.calander{
-  height: 348px;
-  margin-top: 710px;
+.calendar{
+  height: 400px;
+  /* margin-top: 710px; */
+}
+
+#custom-orange{
+  background-color: #FAA74A;
 }
