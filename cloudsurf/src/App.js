@@ -134,47 +134,47 @@ SignOut = () => {
           isLoggedIn: false,
         })
       })
-
-
 }
 
 
   render() {    
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header >
-         <LogoFlyer src = '/images/logo.svg' />
-          <Firstlogo>CloudSurf</Firstlogo>
-           <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link> 
-       
-         
-        
-      
-        <LogButton onClick={this.SignOut}>Logout</LogButton></Header>
-        
-         <Route path="/user" render={props => 
-              <UserFullCard 
-                  {...props} 
-                  user={this.state.currentUser} />
-            } />
-         <Route path='/' render={(props) => {
-            return <Map {...props}  dropzone={this.state.dropzones}/>
+        {this.state.isLoggedIn? 
+          <div>
+            <Header >
+              <LogoFlyer src = '/images/logo.svg' />
+              <Firstlogo>CloudSurf</Firstlogo>
+              {/* <Link to='/user'> <UserMiniCard user = {this.state.currentUser}/></Link>  */}
+              <LogButton onClick={this.SignOut}>Logout</LogButton>
+            </Header>
+            {/* <Route path="/user" render={props => 
+                  <UserFullCard 
+                      {...props} 
+                      user={this.state.currentUser} />
+                } /> */}
+            <Route path='/' render={(props) => {
+                return <Map {...props}  dropzone={this.state.dropzones}/>
 
-          }}/></div>: <div><FrontPage><button name='facebook' onClick={this.SignIn}>Facebook Login</button></FrontPage></div>}
- <div>
-          <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
-            // console.log(this.state.dropzones)
-            return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
-          }} />
-          <Route path='/' render={(props) => ( <Map {...props}  dropzone={this.state.dropzones}/> ) }  />
-          }}/>
-          
-          
-          
-         </div>
-   
-      </div>
+              }}/>
+          </div>  : 
+          <div>
+            <FrontPage><button name='facebook' onClick={this.SignIn}>Facebook Login</button></FrontPage>
+          </div>
+        }
+        {this.state.dropzones ?
+          <div>
+            <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
+              // console.log(this.state.dropzones)
+              return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
+            }} />
+          </div>
+        : <div>Loading ...</div> }
+      </div> 
     );
   }
 }
 export default App;
+
+
+// return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
