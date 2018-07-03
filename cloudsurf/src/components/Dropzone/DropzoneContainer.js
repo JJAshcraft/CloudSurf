@@ -13,7 +13,7 @@ const DropzoneContainer = ({dropzone}) =>
       url={dropzone.photoURL}
       name={dropzone.name}  />
     <DropzoneInfo info={dropzone} />
-    {/* <DropzoneUsers users={dropzone.usersIds}/> */}
+    <DropzoneUsers users={dropzone.userIds}/>
     <DropzoneEvents />
   </div>
 
