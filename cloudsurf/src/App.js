@@ -102,7 +102,15 @@ SignOut = () => {
  
       {this.state.dropzones 
        ? <React.Fragment>
+<<<<<<< HEAD
           <DropzoneContainer dropzone={this.state.dropzones[40]} />
+||||||| merged common ancestors
+          <DropzoneContainer dropzone={this.state.dropzones[40]} />
+          <Map dropzone={this.state.dropzones} />
+=======
+          <DropzoneContainer dropzone={this.state.dropzones[4]} />
+          <Map dropzone={this.state.dropzones}/>
+>>>>>>> aabfc612001298a4bb8b99fe3460436710db67d2
          </React.Fragment>
        : <div>Loading ...</div> }
       </div>
