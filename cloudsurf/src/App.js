@@ -106,8 +106,12 @@ SignOut = () => {
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[4]} />
           }}/>
-          <Route />
-          <Map dropzone={this.state.dropzones}/>
+          />
+          <Route path='/' render={(props) => {
+            return <Map {...props}  dropzone={this.state.dropzones}/>
+
+          }}/>
+          
          </div>
        : <div>Loading ...</div> }
       </div>

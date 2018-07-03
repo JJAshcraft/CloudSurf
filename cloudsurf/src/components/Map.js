@@ -6,6 +6,10 @@ class MapContainer extends React.Component {
     constructor(props){
         super(props);
     }
+    handleClick = (id) =>{
+        this.props.history.push(`/dropzone/${id}`)
+
+    }
     render(){
         const style = {
             width: '100%',
@@ -30,12 +34,12 @@ class MapContainer extends React.Component {
                     style={style}
                 >
                     { this.props.dropzone.map(zone => {
-                        // return  (<Link to={`dropzone/${zone[0]}`} key={zone[0]}>
-                            return       <Marker onClick={() => (console.log('clicked'))}
+
+                        return <Marker onClick={() => this.handleClick(zone[0])}
                                             position={{lat: zone[1].lat, lng: zone[1].lng}}
                                             key={zone[0]}
                                         />
-                                //  </Link >)
+                                 
                         })
                     }
                     
