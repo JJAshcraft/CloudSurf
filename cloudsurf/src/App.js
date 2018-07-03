@@ -165,7 +165,7 @@ SignOut = () => {
  <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
-            return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
+            return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
           }}/>
           
           
