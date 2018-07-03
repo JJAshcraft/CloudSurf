@@ -2,6 +2,7 @@
   "dependencies": {
     "firebase": "^5.2.0",
     "google-maps-react": "^2.0.2",
-    "react-event-calendar": "^0.3.0"
+    "moment": "^2.22.2",
+    "react-big-calendar": "^0.19.2"
   }
 }
