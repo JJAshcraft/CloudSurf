@@ -57,7 +57,9 @@ class App extends Component {
 
     let dzRef = firebase.database().ref('dropzones');
     dzRef.on('value', snapshot => {
-      let dropzones = Object.entries(snapshot.val())
+      // let dropzones = Object.entries(snapshot.val())
+      const dropzones = snapshot.val();
+      // for(let x )
       this.setState({ dropzones })
     })
   }
@@ -96,7 +98,7 @@ SignOut = () => {
 
 
   render() {
-    console.log(this.state.dropzones)
+    // console.log(this.state.dropzones)
     return (
       <div className="App">
       {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
@@ -104,7 +106,8 @@ SignOut = () => {
       {this.state.dropzones 
        ? <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
-            return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[4]} />
+            console.log(dropProps.match.params.id, 'match id')
+            return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
           }}/>
           />
           <Route path='/' render={(props) => {

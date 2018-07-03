@@ -8,7 +8,7 @@ class MapContainer extends React.Component {
     }
     handleClick = (id) =>{
         this.props.history.push(`/dropzone/${id}`)
-
+        
     }
     render(){
         const style = {
@@ -19,25 +19,26 @@ class MapContainer extends React.Component {
             
           }
           const drop = [];
+        //   console.log(this.props.dropzone)
           for(let x in this.props.dropzone){
-            drop.push(this.props.dropzone[x])
+            drop.push({id: x, data:this.props.dropzone[x] })
           }
           
           
         return(
             <div className="map" > 
-                <Map google={this.props.google} zoom={3.5}
+                <Map google={this.props.google} zoom={5}
                     initialCenter={{
                         lat: 36.850033,
                         lng: -87.6500523
                     }}
                     style={style}
                 >
-                    { this.props.dropzone.map(zone => {
+                    { drop.map(zone => {
 
-                        return <Marker onClick={() => this.handleClick(zone[0])}
-                                            position={{lat: zone[1].lat, lng: zone[1].lng}}
-                                            key={zone[0]}
+                        return <Marker onClick={() => this.handleClick(zone.id)}
+                                            position={{lat: zone.data.lat, lng: zone.data.lng}}
+                                            key={zone.id}
                                         />
                                  
                         })

@@ -8,12 +8,12 @@ import DropzoneEvents from './DropzoneEvents'
 const DropzoneContainer = ({dropzone}) =>
 
   <div>
-    {console.log(dropzone[1])}
+    {console.log(dropzone)}
     <DropzoneImg 
-      url={dropzone[1].photoURL}
-      name={dropzone[1].name}  />
-    <DropzoneInfo info={dropzone[1]} />
-    <DropzoneUsers users={dropzone[1].usersIds}/>
+      url={dropzone.photoURL}
+      name={dropzone.name}  />
+    <DropzoneInfo info={dropzone} />
+    {/* <DropzoneUsers users={dropzone.usersIds}/> */}
     <DropzoneEvents />
   </div>
 
