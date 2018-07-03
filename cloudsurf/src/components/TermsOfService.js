@@ -163,7 +163,7 @@ const TermsOfService = () => {
 	we will not be liable for any loss or damage of any nature.</p>
 <h2></h2>
 	<p></p>
-<h2>Credit & Contact Information</h2>
+<h2>Credit and Contact Information</h2>
 	<p>This Terms and conditions page was created at <a style="color:inherit;text-decoration:none;cursor:text;"
 		href="https://termsandconditionstemplate.com">termsandconditionstemplate.com</a> generator. If you have
 	any queries regarding any of our terms, please contact us.</p>		

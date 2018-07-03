@@ -9,8 +9,11 @@ class MapContainer extends React.Component {
     }
     render(){
         const style = {
-            width: '600px',
-            height: '300px',
+            width: '100%',
+            
+            position: 'absolute',
+            top: '100px',
+            overflow: 'hidden'
           }
           
         return(
