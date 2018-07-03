@@ -3,19 +3,31 @@ import Map from './components/Map';
 import DropzoneContainer from './components/Dropzone/DropzoneContainer'
 import './App.css';
 import FrontPage from './components/FrontPage';
-import firebase, {auth, provider} from './firebase';
+import firebase from './firebase';
 import styled from 'styled-components';
 import { Route, BrowserRouter as Router } from 'react-router-dom';
+import UserMiniCard from './components/UserProfile/UserMiniCard';
 
 const Header = styled.div`
 background-color: #555358;
 width: 100%;
-height: 100px;
+height: 60px;
 position: absolute;
 top: 0;
+display: flex;
+justify-content: center;
+align-items: center;
 `
-// import UserList from './components/UserList';
 
+const Logo = styled.span`
+ padding-left: 10px;
+ padding-right: 15px;
+ border-right: 1px solid white;
+ font-size: 28px;
+ color: white;
+ font-weight: bold;
+ vertical-align: center;
+`
 
 class App extends Component {
   constructor() {
@@ -64,35 +76,31 @@ class App extends Component {
     })
   }
 
-FacebookSignIn = () => {
-firebase.auth().signInWithPopup(provider)
-.then(function (result) {
-  if (result.credential) {
-    // This gives you a Facebook Access Token. You can use it to access the Facebook API.
-    var token = result.credential.accessToken;
-    // ...
-  }
-  // The signed-in user info.
-  var user = result.user;
-  console.log(user);
-}).catch(function (error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-  // The email of the user's account used.
-  var email = error.email;
-  // The firebase.auth.AuthCredential type that was used.
-  var credential = error.credential;
-});
+SignIn = (e) => {
+  let provider;
+     if (e.target.name === 'facebook') {
+      provider = new firebase.auth.FacebookAuthProvider();
+     } else if (e.target.name === 'google') {
+      provider = new firebase.auth.GoogleAuthProvider();
+     }
+      firebase.auth().signInWithPopup(provider)
+      .then(({ user }) => {
+        this.setState({ 
+          currentUser: user,
+          isLoggedIn: true,
+         })
+      })
 }  
 
 SignOut = () => {
-  firebase.auth().signOut().then(function () {
-    // Sign-out successful.
-  }).catch(function (error) {
-    // An error happened.
-  });
-  this.setState({isLoggedIn:false})
+
+      firebase.auth().signOut().then(() => {
+        this.setState({
+          currentUser: null,
+          isLoggedIn: false,
+        })
+      })
+
 
 }
 
@@ -101,7 +109,10 @@ SignOut = () => {
     // console.log(this.state.dropzones)
     return (
       <div className="App">
-      {this.state.isLoggedIn? <div><Header><button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button onClick={this.FacebookSignIn}>Facebook Login</button> </Header></div>}
+      {this.state.isLoggedIn? <div><Header>
+         <Logo>CloudSurf</Logo> <UserMiniCard user = {this.state.currentUser}/>
+        
+        <button onClick={this.SignOut}>Logout</button></Header> </div>: <div><Header><button  name='google' onClick={this.SignIn}>Facebook Login</button> </Header></div>}
  
       {this.state.dropzones 
        ? <div>
