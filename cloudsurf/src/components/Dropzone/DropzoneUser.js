@@ -1,5 +1,5 @@
 import React from 'react'
 
-const DropzoneUser = () => <div>User</div>
-
+const DropzoneUser = (props) => <div>{props.user.name}</div>
+  
 export default DropzoneUser
