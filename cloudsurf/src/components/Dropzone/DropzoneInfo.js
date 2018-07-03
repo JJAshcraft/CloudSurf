@@ -16,7 +16,7 @@ const DropzoneInfo = props => {
   return (
     <div>
       <h1>{name}</h1>
-      <h3>{address}</h3>
+      <div>{address}</div>
       <div>{phone}</div>
       <div>{web}</div>
       <div>{rating}</div>

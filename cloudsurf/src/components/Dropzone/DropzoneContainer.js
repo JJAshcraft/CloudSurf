@@ -2,7 +2,6 @@ import React from 'react'
 import DropzoneImg from './DropzoneImg'
 import DropzoneInfo from './DropzoneInfo'
 import DropzoneUsers from './DropzoneUsers'
-import DropzoneEvents from './DropzoneEvents'
 import MyCalendar from './Calendar';
 import styled from 'styled-components';
 import '../../App.css'
@@ -73,10 +72,7 @@ return (
     {console.log(dropzone)}
     
     <DropzoneInfo info={dropzone} />
-    <Link to='/events'>See our events</Link>
-     <Route path = 'events' render={props=> {
-<MyCalendar events={filtereEevents}/>
-     }} />
+    
     <UserDiv>
       <UserWrapper>
     <DropzoneUsers users={dropzone.userIds}/>
