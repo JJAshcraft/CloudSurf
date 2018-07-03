@@ -107,8 +107,8 @@ SignOut() {
  
       {this.state.dropzones 
        ? <React.Fragment>
-          <DropzoneContainer dropzone={this.state.dropzones[40]} />
-          <Map dropzone={this.state.dropzones} />
+          <DropzoneContainer dropzone={this.state.dropzones[4]} />
+          <Map dropzone={this.state.dropzones}/>
          </React.Fragment>
        : <div>Loading ...</div> }
       </div>
