@@ -9,6 +9,7 @@ class DropzoneUsers extends React.Component{
   }
 
   componentWillMount(){
+    console.log(this.props.users)
      this.props.users.forEach( userId => {
       let usersRef = firebase.database().ref(`users/${userId}`);
       return usersRef.on('value', snapshot => {
