@@ -38,10 +38,9 @@ top:'40px',
                     { drop.map(zone => {
 
                         return <Marker onClick={() => this.handleClick(zone.id)}
-                                            position={{lat: zone.data.lat, lng: zone.data.lng}}
-                                            key={zone.id}
-                                        />
-                                 
+                                    position={{lat: zone.data.lat, lng: zone.data.lng}}
+                                    key={zone.id}
+                                />
                         })
                     }
                     

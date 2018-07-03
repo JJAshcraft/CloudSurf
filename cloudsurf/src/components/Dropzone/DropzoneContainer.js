@@ -3,8 +3,10 @@ import DropzoneImg from './DropzoneImg'
 import DropzoneInfo from './DropzoneInfo'
 import DropzoneUsers from './DropzoneUsers'
 import DropzoneEvents from './DropzoneEvents'
-import './dropzonecontainer.css'
+import MyCalendar from './Calander';
 import styled from 'styled-components';
+import '../../App.css'
+import './dropzonecontainer.css'
 
 const OuterDiv = styled.div `
 position: relative;
@@ -49,7 +51,12 @@ position: Absolute;
 height: 100%;
 `
 
-const DropzoneContainer = ({dropzone}) =>
+
+const DropzoneContainer = ({dropzone, events, dropId}) =>{
+  const filtereEevents = []
+  for(let x in events){
+    events[x].dropZoneId == dropId ? filtereEevents.push(events[x]) : null;
+  }
 
 <Wrapper>
   <div className="image-background">
@@ -62,7 +69,7 @@ const DropzoneContainer = ({dropzone}) =>
     {console.log(dropzone)}
     
     <DropzoneInfo info={dropzone} />
-    <DropzoneEvents />
+     <MyCalendar events={filtereEevents}/>
     <UserDiv>
       <UserWrapper>
     <DropzoneUsers users={dropzone.userIds}/>

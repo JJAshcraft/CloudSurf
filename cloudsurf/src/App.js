@@ -65,7 +65,8 @@ class App extends Component {
       currentUser: null,
       isLoggedIn: false,
       // firebase returns indexed objects
-      dropzones: null
+      dropzones: null,
+      events: []
     }
  
   }
@@ -96,11 +97,17 @@ class App extends Component {
 
 
     let dzRef = firebase.database().ref('dropzones');
+    
     dzRef.on('value', snapshot => {
       // let dropzones = Object.entries(snapshot.val())
       const dropzones = snapshot.val();
-      // for(let x )
       this.setState({ dropzones })
+    })
+    let eventRef = firebase.database().ref('events');
+    eventRef.on('value', snapshot => {
+      // let dropzones = Object.entries(snapshot.val())
+      const events = snapshot.val();
+      this.setState({ events })
     })
   }
 
@@ -128,13 +135,10 @@ SignOut = () => {
           isLoggedIn: false,
         })
       })
-
-
 }
 
 
-  render() {
-    // console.log(this.state.dropzones)
+  render() {    
     return (
       <div className="App">
       {this.state.isLoggedIn? <div><Header >
@@ -161,7 +165,7 @@ SignOut = () => {
  <div>
           <Route {...this.props} exact path="/dropzone/:id" render={(dropProps) => {
             // console.log(this.state.dropzones)
-            return <DropzoneContainer {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
+            return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
           }}/>
           
           
@@ -172,5 +176,7 @@ SignOut = () => {
     );
   }
 }
-
 export default App;
+
+
+// return <DropzoneContainer events={this.state.events} dropId={'d2'} {...dropProps} {...this.props} dropzone={this.state.dropzones[dropProps.match.params.id]} />
